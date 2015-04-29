@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A node.js module to calculate block execution time.",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter xunit-file ./test > xunit.xml"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/noritama/elapsed-timer"
@@ -25,6 +28,7 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "mocha": "^2.2.4",
-    "power-assert": "^0.11.0"
+    "power-assert": "^0.11.0",
+    "xunit-file": "0.0.6"
   }
 }

@@ -52,3 +52,48 @@ describe('Timer', function() {
 
   });
 });
+
+describe('Metric', function() {
+
+  function exec(name) {
+    var timer = et.timer(name);
+    setTimeout(function() {
+      timer.end();
+    }, 10);
+  }
+
+  it('should get metrics', function(done) {
+    for (var i = 0; i < 100; i++) {
+      exec('metricTest');
+    }
+
+    setTimeout(function() {
+      var metric = et.metrics.metricTest;
+      assert.ok(metric);
+      assert(metric.count() === 100);
+      assert.ok(metric.average());
+      assert.ok(metric.min());
+      assert.ok(metric.max());
+      assert.ok(metric.duration());
+      done();
+    }, 20);
+  });
+
+  it('should clear metric', function(done) {
+    for (var i = 0; i < 10; i++) {
+      exec('clearTest');
+    }
+
+    setTimeout(function() {
+      var metric = et.metrics.clearTest;
+      assert.ok(metric);
+      assert(metric.count() === 10);
+
+      metric.clear();
+
+      assert(metric.count() === 0);
+      done();
+    }, 20);
+  });
+});
+
