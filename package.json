@@ -1,6 +1,6 @@
 {
   "name": "elapsed-timer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A node.js module to calculate block execution time.",
   "main": "index.js",
   "scripts": {
