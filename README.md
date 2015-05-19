@@ -31,7 +31,7 @@ Stop this timer;
 
 #### Timer.prototype.diff()
 
-Return duration milliseconds.
+Return duration nanoseconds.
 
 ### Metrics
 
